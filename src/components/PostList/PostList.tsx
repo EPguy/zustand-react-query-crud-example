@@ -13,10 +13,11 @@ import {
 import PostListHeader from './PostListHeader';
 import { Delete, Edit } from '@mui/icons-material';
 import PostListPagination from './PostListPagination';
-import usePagination from '../../hooks/usePagination';
+import useDialog from '../../hooks/useDialog';
 
 const PostList = () => {
   const { data, isLoading } = usePost();
+  const { openPasswordDialog } = useDialog();
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -52,7 +53,7 @@ const PostList = () => {
                       <Button size="small" variant="outlined" startIcon={<Edit />} onClick={(e) => {}}>
                         Edit
                       </Button>
-                      <Button size="small" color="error" variant="outlined" startIcon={<Delete />}  onClick={(e) => {}}>
+                      <Button size="small" color="error" variant="outlined" startIcon={<Delete />}  onClick={(e) => openPasswordDialog(post)}>
                         Delete
                       </Button>
                     </Stack>

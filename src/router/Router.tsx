@@ -1,12 +1,20 @@
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import PostListPage from '../pages/PostListPage/PostListPage';
+import DescriptionAlert from '../components/Alert/DescriptionAlert/DescriptionAlert';
+import ConfirmDialog from '../components/dialog/PasswordDialog/ConfirmDialog';
 
 const Router = () => createBrowserRouter(
   [{
     path: "/",
     element: <>
-      <PostListPage/>
-    </>
+      <DescriptionAlert />
+      <ConfirmDialog />
+      <Outlet />
+    </>,
+    children: [{
+      path: "/",
+      element: <PostListPage/>
+    }]
   }]
 )
 
