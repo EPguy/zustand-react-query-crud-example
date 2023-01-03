@@ -1,6 +1,6 @@
 import { useAlertStore } from '../store/alertStore';
 
-export default function usePagination() {
+export default function useAlert() {
   const {isOpen, type, title, body, open, close} = useAlertStore(
     (state) => ({
       isOpen: state.isOpen, type: state.type,

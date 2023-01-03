@@ -6,7 +6,7 @@ type AlertState = {
   type: AlertTypeEnum,
   title: string,
   body: string,
-  open: () => void,
+  open: (alertType: AlertTypeEnum, title: string, body: string) => void,
   close: () => void,
 }
 
@@ -15,6 +15,6 @@ export const useAlertStore = create<AlertState>((set) => ({
   type: AlertTypeEnum.SUCCESS,
   title: '',
   body: '',
-  open: () => set(() => ({ isOpen: true })),
+  open: (type: AlertTypeEnum, title: string, body: string) => set(() => ({ type, title, body, isOpen: true })),
   close: () => set(() => ({ isOpen: false })),
 }))
